@@ -18,7 +18,9 @@ return new class extends Migration
             $table->date('tanggal');
             $table->time('jam');
             $table->foreignId('category_issue_id')->constrained('catagory_issues');
-            $table->string('no');
+            $table->string('nokwn')->nullable();
+            $table->string('nopolo')->nullable();
+            $table->string('noodr')->nullable();
             $table->text('details_issue');
             $table->text('solusi');
             $table->timestamps();
