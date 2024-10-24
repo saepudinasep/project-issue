@@ -17,8 +17,10 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->date('tanggal');
             $table->time('jam');
-            $table->foreignId('category_issue_id')->constrained('category_issues');
-            $table->string('no');
+            $table->foreignId('category_issue_id')->constrained('catagory_issues');
+            $table->string('nokwn')->nullable();
+            $table->string('nopolo')->nullable();
+            $table->string('noodr')->nullable();
             $table->text('details_issue');
             $table->text('solusi');
             $table->timestamps();
