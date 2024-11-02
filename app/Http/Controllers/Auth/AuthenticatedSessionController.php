@@ -33,6 +33,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // disini bisa diubah jika ingin berbeda dashboard untuk setiap role nya
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 
