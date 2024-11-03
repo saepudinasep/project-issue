@@ -11,8 +11,16 @@ class DashboardController extends Controller
     {
         $user = Auth::user()->load('role');
 
-        return inertia('Dashboard', [
-            'auth' => ['user' => $user]
-        ]);
+        if ($user->role->name  === 'MSP') {
+            return inertia('Dashboard/MSP/Index', [
+                'auth' => ['user' => $user],
+                'success' => session('success'),
+            ]);
+        } else {
+            return inertia('Dashboard/Product/Index', [
+                'auth' => ['user' => $user],
+                'success' => session('success'),
+            ]);
+        }
     }
 }
