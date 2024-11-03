@@ -55,6 +55,12 @@ export default function AuthenticatedLayout({ header, children }) {
                                 >
                                     Listing Issue
                                 </NavLink>
+                                <NavLink
+                                    href={route('report.index')}
+                                    active={route().current('report.index')}
+                                >
+                                    Report
+                                </NavLink>
                             </div>
                         </div>
 
