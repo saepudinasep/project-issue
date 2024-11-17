@@ -167,6 +167,36 @@ export default function AuthenticatedLayout({ header, children }) {
                         >
                             Dashboard
                         </ResponsiveNavLink>
+                        {
+                            user.role.name === 'MSP' && (
+                                <>
+                                    <ResponsiveNavLink
+                                        href={route('region.index')}
+                                        active={route().current('region.index')}
+                                    >
+                                        Office Name
+                                    </ResponsiveNavLink>
+                                    <ResponsiveNavLink
+                                        href={route('catagory.index')}
+                                        active={route().current('catagory.index')}
+                                    >
+                                        Category Issue
+                                    </ResponsiveNavLink>
+                                </>
+                            )
+                        }
+                        <ResponsiveNavLink
+                            href={route('issue.index')}
+                            active={route().current('issue.index')}
+                        >
+                            Listing Issue
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('report.index')}
+                            active={route().current('report.index')}
+                        >
+                            Report
+                        </ResponsiveNavLink>
                     </div>
 
                     <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">

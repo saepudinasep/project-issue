@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Region;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegionController extends Controller
 {
@@ -12,7 +13,15 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        $region = Region::paginate(10);
+        $user = Auth::user()->load('role');
+
+
+        return inertia('Region/Index', [
+            'auth' => ['user' => $user],
+            'region' => $region,
+            'success' => session('success'),
+        ]);
     }
 
     /**
